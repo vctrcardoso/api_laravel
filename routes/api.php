@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Project\ProjectController;
+use App\Http\Controllers\User\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -35,4 +36,9 @@ Route::controller(ProjectController::class)->group(function (){
     Route::post('projects/update/{id}', 'update');
     Route::post('projects/destroy/{id}', 'destroy');
     Route::get('projects/listProjectUser', 'listProjectUser');
+});
+
+Route::controller(UserController::class)->group(function (){
+    Route::get('users', 'index');
+    Route::get('user', 'show');
 });
